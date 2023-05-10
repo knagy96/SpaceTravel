@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New User{% endblock %}
+
+{% block body %}
+<style>
+    .back-arrow {
+      font-size: 1.5rem;
+      color: black !important;
+    }
+</style>
+  <div class="">
+    <a class="back-arrow text-decoration-none text-light m-2 p-2 fw-bold" href="{{ path('app_user_index') }}">
+      <i class="bi bi-arrow-left"></i>
+      Back</a>
+  </div>
+
+  <div class="container">
+      <h1 class="text-center">Create new User</h1>
+    <div class="w-50 mx-auto border bg-light rounded p-3 m-3">
+    {{ include('user/_form.html.twig') }}
+    </div>
+  </div>
+
+
+{% endblock %}

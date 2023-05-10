@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Personal Details
+{% endblock %}
+
+{% block body %}
+	<!-- Style -->
+	<style>
+		body {
+			background: black;
+			color: white;
+		}
+		.back-arrow {
+			font-size: 1.5rem;
+		}
+        .form-container {
+            border-style: solid;
+            border-color: var(--accent-color-orange) !important;
+        }
+	</style>
+
+	<!-- Back Button -->
+	<div class="">
+		<a class="back-arrow text-decoration-none text-light m-2 p-2 fw-bold" href="{{ path('app_dashboard') }}">
+			<i class="bi bi-arrow-left"></i>
+			Back</a>
+	</div>
+
+	<!-- Personal Details Form -->
+	<div class="form-container container text-center m-5 p-5 border rounded bg-dark w-50 mx-auto">
+	<h1 class="divider-heading text-center my-3">Personal Details</h1>
+		{{ form_start(form) }}
+	<div class="row mb-3">
+		{{ form_label(form.email, "Email", {'label_attr': {'class': 'col-sm-2 col-form-label'}}) }}
+		{{ form_widget(form.email, {'attr': {'class': 'col-sm-10 border-dark rounded border-1'}}) }}
+	</div>
+	<div class="row mb-3">
+		{{ form_label(form.first_name, "First Name", {'label_attr': {'class': 'col-sm-2 col-form-label'}}) }}
+		{{ form_widget(form.first_name, {'attr': {'class': 'col-sm-10 border-dark rounded border-1'}}) }}
+	</div>
+	<div class="row mb-3">
+		{{ form_label(form.last_name, "Last Name", {'label_attr': {'class': 'col-sm-2 col-form-label'}}) }}
+		{{ form_widget(form.last_name, {'attr': {'class': 'col-sm-10 border-dark rounded border-1'}}) }}
+	</div>
+	<div class="row mb-3">
+		{{ form_label(form.address, "Address", {'label_attr': {'class': 'col-sm-2 col-form-label'}}) }}
+		{{ form_widget(form.address, {'attr': {'class': 'col-sm-10 border-dark rounded border-1'}}) }}
+	</div>
+	<div class="row mb-3">
+		{{ form_label(form.passport, "Passport", {'label_attr': {'class': 'col-sm-2 col-form-label'}}) }}
+		{{ form_widget(form.passport, {'attr': {'class': 'col-sm-10 border-dark rounded border-1'}}) }}
+	</div>
+	<div class="row mb-3">
+		{{ form_label(form.phone, "Phone", {'label_attr': {'class': 'col-sm-2 col-form-label'}}) }}
+		{{ form_widget(form.phone, {'attr': {'class': 'col-sm-10 border-dark rounded border-1'}}) }}
+	</div>
+		{{ form_row(form._token) }}
+		<button class="btn btn-light btn-orange fw-bold m-3">{{ button_label|default('Save') }}</button>
+		{{ form_end(form, { 'render_rest': false}) }}
+	</div>
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DashboardController!{% endblock %}
+
+{% block body %}
+<h1>Your Trips</h1>
+    <div style="display: flex; flex-wrap: wrap; gap: 1em; margin-top: 2rem;">
+
+    {% set trip_id = 0 %}
+    {% for trip in trips %}
+        {% set trip = trip.trip %}
+        <div style="border: 2px solid black; width: 150px; text-align: center;">
+            <h3>{{ trip.name }}</h3>
+            <p>{{ trip.destination }}</p>
+            <p><a href="/dashboard/trips/{{ trip_id }}">Manage</a></p>
+        </div>
+        {% set trip_id = trip_id + 1 %}
+    {% endfor %}
+    </div>
+    <div><a href="/notes">Journal</a></div>
+    <a href="/">Home</a>
+    <a href="/logout">Logout</a>
+{% endblock %}
